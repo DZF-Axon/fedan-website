@@ -7,7 +7,7 @@
    While it is empty, every WhatsApp link on the site stays hidden
    and "Start with a conversation" goes to the contact page.
    --------------------------------------------------------------- */
-var WHATSAPP_NUMBER = ""; /* [WhatsApp number, digits only, e.g. 447XXXXXXXXX] */
+var WHATSAPP_NUMBER = "447424282973"; /* Fedan line (Lyca eSIM). WhatsApp Business must be set up on this number. */
 
 /* ------------------------------------------------------------------
    PHONE NUMBER - the one slot for the phone line.

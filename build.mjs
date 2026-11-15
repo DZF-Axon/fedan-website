@@ -14,7 +14,7 @@ const TODAY = new Date().toISOString().slice(0, 10);
 
 // ---- settings ---------------------------------------------------------------
 // A language is "listed" once a native speaker has read it: linked from the other pages and open to Google.
-const LISTED = { en: true, he: true, ru: false };
+const LISTED = { en: true, he: true, ru: true };
 const LEGAL = 'Fedan Ltd · Company no. 17348292 · Registered office: Second Floor, Sutherland House, 70-78 West Hendon Broadway, London NW9 7BT';
 const LANG = {
   en: {
