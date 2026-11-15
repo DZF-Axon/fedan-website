@@ -154,3 +154,60 @@ var PHONE_DISPLAY = "07424 282 973";
     });
   });
 })();
+
+/* ---------------------------------------------------------------
+   ANALYTICS AND COOKIE CHOICE
+   Google's tag (container GTM-56HD9G4T) loads only after the
+   visitor accepts. The choice is remembered in the browser.
+   To switch analytics off entirely, empty GTAG_ID.
+   --------------------------------------------------------------- */
+var GTAG_ID = "GTM-56HD9G4T";
+(function () {
+  if (!GTAG_ID) return;
+  var KEY = "fedan_analytics";
+  var lang = (document.documentElement.lang || "en").slice(0, 2);
+  var TXT = {
+    en: { msg: "We would like to use Google Analytics to see how the site is used. It sets cookies, so we only switch it on if you agree.", yes: "Accept", no: "No thanks", more: "Privacy" },
+    he: { msg: "נשמח להשתמש ב-Google Analytics כדי להבין איך משתמשים באתר. הוא שומר עוגיות, ולכן נפעיל אותו רק אם תסכימו.", yes: "מסכים", no: "לא תודה", more: "פרטיות" },
+    ru: { msg: "Мы хотели бы использовать Google Analytics, чтобы понимать, как пользуются сайтом. Он сохраняет файлы cookie, поэтому мы включим его только с вашего согласия.", yes: "Согласен", no: "Нет, спасибо", more: "Конфиденциальность" }
+  }[lang] || null;
+  if (!TXT) return;
+  function load() {
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtm.js?id=" + GTAG_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+  }
+  var choice = null;
+  try { choice = localStorage.getItem(KEY); } catch (e) {}
+  if (choice === "yes") { load(); return; }
+  if (choice === "no") return;
+  var bar = document.createElement("div");
+  bar.className = "consent";
+  bar.setAttribute("role", "region");
+  bar.setAttribute("aria-label", "Cookies");
+  var p = document.createElement("p");
+  p.textContent = TXT.msg + " ";
+  var a = document.createElement("a");
+  a.href = "/privacy"; a.textContent = TXT.more;
+  p.appendChild(a);
+  var row = document.createElement("div");
+  row.className = "consent-row";
+  function btn(label, cls, val) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = cls; b.textContent = label;
+    b.addEventListener("click", function () {
+      try { localStorage.setItem(KEY, val); } catch (e) {}
+      bar.remove();
+      if (val === "yes") load();
+    });
+    return b;
+  }
+  row.appendChild(btn(TXT.no, "btn btn-sm btn-ghost", "no"));
+  row.appendChild(btn(TXT.yes, "btn btn-sm", "yes"));
+  bar.appendChild(p); bar.appendChild(row);
+  document.body.appendChild(bar);
+})();

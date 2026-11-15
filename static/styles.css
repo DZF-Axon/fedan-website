@@ -454,3 +454,9 @@ html[lang="he"] .legal { font-size: 14px; }
 .making { align-items: center; }
 .making video { display: block; width: 100%; max-width: 340px; height: auto; background: var(--stone-2); }
 @media (prefers-reduced-motion: reduce) { .making video { display: none; } }
+
+/* Cookie choice bar */
+.consent { position: fixed; inset-inline: 16px; bottom: 16px; z-index: 50; max-width: 560px; margin-inline-start: auto; background: var(--stone); border: 1px solid var(--rule-strong); padding: 20px 24px; }
+.consent p { font-size: 15px; line-height: 1.5; color: var(--ink); }
+.consent p a { border-bottom: 1px solid var(--rule); }
+.consent-row { display: flex; gap: 12px; justify-content: flex-end; margin-top: 14px; }
