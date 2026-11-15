@@ -193,6 +193,53 @@ fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="
 fs.writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
 fs.writeFileSync(path.join(DIST, '_redirects'), REDIRECTS);
 
+// ---- structured data on every English page, and llms.txt (for search engines and AI assistants) ----
+const ORG = { '@id': `${ORIGIN}/#organization` };
+const svc = (name, price, description, url, from) => ({ '@type': 'Service', name, description, serviceType: 'Construction cost and project management', provider: ORG, areaServed: ['North London', 'Surrey'], url: ORIGIN + url, offers: { '@type': 'Offer', priceCurrency: 'GBP', price, ...(from ? { description: 'Starting price' } : {}) } });
+const S = {
+  dcr: svc('Deal Cost Read', '195', 'A desk read of what a refurbishment should cost before an investor or landlord makes an offer: a cost range, the main risks and a walk-away figure, in two working days.', '/investors'),
+  fr: svc('Feasibility Report', '1500', 'A site visit and a written cost range before any design is paid for, with the five things most likely to move the cost and an outline programme.', '/how-we-work#feasibility', true),
+  br: svc('Buildability Review', '495', 'A contractor’s read of a drawing set before tender: what is missing before it can be priced, where the drawings disagree and what is likely to become an extra. Up to 20 drawings.', '/how-we-work#buildability'),
+  bqr: svc('Builder Quote Review', '395', 'Up to three builders’ quotes checked against the drawings: what each leaves out, what is only an allowance and what to ask before signing. A written report in five working days.', '/quote-review'),
+};
+const PEOPLE = [
+  { '@type': 'Person', name: 'Daniel Zhirov Fedan', jobTitle: 'Founder', worksFor: ORG, knowsLanguage: ['en', 'he', 'ru'] },
+  { '@type': 'Person', name: 'Helen Zhirov', jobTitle: 'Design Director', worksFor: ORG },
+];
+const EXTRA = { investors: [S.dcr, S.fr], 'quote-review': [S.bqr], 'how-we-work': [S.dcr, S.fr, S.br, S.bqr], owners: [S.fr, S.br, S.bqr], architects: [S.br], about: PEOPLE };
+for (const p of pages.filter(p => p.lang === 'en' && p.slug !== '' && !p.is404 && !p.noindex)) {
+  const f = outOf(p.lang, p.slug);
+  const graph = [{ '@type': 'Organization', ...ORG, name: 'Fedan', legalName: 'Fedan Ltd', url: `${ORIGIN}/` }, ...(EXTRA[p.slug] || [])];
+  const tag = `  <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>\n`;
+  fs.writeFileSync(f, rd(f).replace('</head>', tag + '</head>'));
+}
+const en = pages.filter(p => p.lang === 'en' && !p.noindex && !p.is404);
+fs.writeFileSync(path.join(DIST, 'llms.txt'), `# Fedan
+
+> Fedan is a cost and project management firm for renovations, extensions and fit-outs in north London and Surrey. It tells owners, investors and landlords what a project should cost before they commit, then manages the build at one fixed price for the agreed scope.
+
+## Facts
+- Company: Fedan Ltd, registered in England and Wales, company no. 17348292
+- Area served: north London and Surrey
+- Who it is for: homeowners, owners of business premises, property investors, landlords, and architects and designers
+- People: Daniel Zhirov Fedan, founder (cost and delivery), in London construction since 2019; Helen Zhirov, Design Director
+- A family practice. Languages: English, Hebrew and Russian
+- Delivery: its own trades plus a vetted network of subcontractors, under one contract and one point of contact
+- Contact: ${EMAIL}, phone and WhatsApp +44 7424 282973, ${ORIGIN}/contact
+- Fedan also manages builds. Its reports never recommend Fedan and can be used with any builder.
+
+## Services and prices
+- Deal Cost Read, £195 (three for £495): refurbishment cost range, main risks and a walk-away figure from the agent's pack, before an offer. Two working days. ${ORIGIN}/investors
+- Feasibility Report, from £1,500: a site visit and a written cost range before design, with an outline programme. Five working days from the visit. ${ORIGIN}/how-we-work#feasibility
+- Buildability Review, £495: a contractor's read of a drawing set before tender, up to 20 drawings. Five working days. ${ORIGIN}/how-we-work#buildability
+- Builder Quote Review, £395: up to three builders' quotes checked against the drawings. Five working days. ${ORIGIN}/quote-review
+- Design: fixed fee per stage, with the client's own architect or with Fedan's Design Director
+- Manage and deliver: one fixed price for the agreed scope; every change is priced and approved before it happens
+
+## Pages
+${en.map(p => `- [${p.title}](${ORIGIN}${urlOf(p.lang, p.slug)}): ${p.description}`).join('\n')}
+`);
+
 // ---- checks -----------------------------------------------------------------
 const problems = [];
 const exists = p => { const cands = p.endsWith('/') ? [p + 'index.html'] : [p, p + '.html', p + '/index.html']; return cands.some(c => { const f = path.join(DIST, c); return fs.existsSync(f) && fs.statSync(f).isFile(); }); };
