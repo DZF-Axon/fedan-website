@@ -1,0 +1,34 @@
+    <section class="green" id="start">
+      <div class="wrap">
+        <p class="kicker">Start here</p>
+        <h2>Send us your quotes, or tell us what you’re planning.</h2>
+        <p class="lede">Tell us who you are, where the property is and roughly what you have in mind. If you have builders’ quotes or drawings, say so and we’ll ask for them by email. We reply within two working days.</p>
+        <form class="form" data-form data-one-of="email,phone" name="enquiry" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="website" id="start-form">
+          <input type="hidden" name="form-name" value="enquiry">
+          <input type="hidden" name="lang" value="en">
+          <input type="hidden" name="page" value="Home">
+          <input type="hidden" name="src" value="">
+          <input type="hidden" name="ref" value="">
+          <div class="hp" aria-hidden="true"><label for="enquiry-website">Website</label><input id="enquiry-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <div class="fields">
+            <div class="field"><label for="start-form-who">I am</label><select id="start-form-who" name="who"><option value="private">A homeowner or owner of the premises</option><option value="investor">An investor</option><option value="landlord">A landlord with a property to refurbish</option><option value="other">Other</option></select></div>
+            <div class="field"><label for="start-form-name">Name</label><input id="start-form-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="start-form-email">Email</label><input id="start-form-email" name="email" type="email" autocomplete="email" dir="auto"></div>
+            <div class="field"><label for="start-form-phone">Phone</label><input id="start-form-phone" name="phone" type="tel" autocomplete="tel" dir="auto"></div>
+            <div class="field"><label for="start-form-location">Project location or postcode</label><input id="start-form-location" name="location"></div>
+          </div>
+          <div class="field"><label for="start-form-size">Project size</label><select id="start-form-size" name="size"><option value="room">A single room or space</option><option value="floor">A floor or a full flat</option><option value="house" selected>A whole house or building</option><option value="development">A development or several properties</option><option value="unsure">Not sure yet</option></select></div>
+          <div class="fields">
+            <div class="field"><label for="start-form-start">When would you like to start?</label><select id="start-form-start" name="start"><option value="">Choose one</option><option value="3m">Within 3 months</option><option value="3-6m">In 3 to 6 months</option><option value="6-12m">In 6 to 12 months</option><option value="unsure">Not sure yet</option></select></div>
+            <div class="field"><label for="start-form-budget">Rough budget (optional)</label><input id="start-form-budget" name="budget"></div>
+          </div>
+          <div class="field"><label for="start-form-found">How did you find us?</label><select id="start-form-found" name="found" required><option value="">Choose one</option><option value="google">Google search</option><option value="google-maps">Google Maps</option><option value="ai-assistant">ChatGPT or another AI assistant</option><option value="architect-designer">An architect or designer</option><option value="directory">Checkatrade, Houzz, Yell or Nextdoor</option><option value="social-group">Facebook or WhatsApp group</option><option value="ru-community">Russian-speaking community</option><option value="he-community">Israeli or Hebrew-speaking community</option><option value="linkedin">LinkedIn</option><option value="referral">Friend or someone I know (referral)</option><option value="other">Other</option></select></div>
+          <div class="field"><label for="start-form-brief">What do you have in mind?</label><textarea id="start-form-brief" name="brief" rows="4"></textarea></div>
+          <div class="form-actions"><button class="btn btn-on-green" type="submit">Send enquiry</button></div>
+          <p class="form-status" role="alert" hidden>Something went wrong and your message did not send. Please email <a href="mailto:info@fedangroup.com">info@fedangroup.com</a>.</p>
+          <p class="thanks" tabindex="-1" role="status">Thanks, we’ve got it. We reply to every enquiry within two working days.</p>
+        </form>
+        <p class="form-note" data-wa-only hidden>Rather talk first? <a href="/contact#talk" data-wa-link>Message us on WhatsApp</a>. We’re always happy to have a quick chat.</p>
+        <p class="form-note">We only use your details to reply to your enquiry. <a href="/privacy">Privacy</a></p>
+      </div>
+    </section>

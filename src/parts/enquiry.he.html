@@ -1,0 +1,34 @@
+    <section class="green" id="start">
+      <div class="wrap">
+        <p class="kicker">מתחילים כאן</p>
+        <h2>שלחו לנו את הצעות המחיר, או ספרו לנו מה אתם מתכננים.</h2>
+        <p class="lede">ספרו לנו מי אתם, איפה הנכס ומה בערך אתם מתכננים. אם יש לכם הצעות מחיר או תוכניות, כתבו לנו ונבקש אותן במייל. אנחנו עונים בתוך שני ימי עבודה.</p>
+        <form class="form" data-form data-one-of="email,phone" name="enquiry" method="POST" action="/he/thanks" data-netlify="true" netlify-honeypot="website" id="start-form">
+          <input type="hidden" name="form-name" value="enquiry">
+          <input type="hidden" name="lang" value="he">
+          <input type="hidden" name="page" value="Home">
+          <input type="hidden" name="src" value="">
+          <input type="hidden" name="ref" value="">
+          <div class="hp" aria-hidden="true"><label for="enquiry-website">Website</label><input id="enquiry-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <div class="fields">
+            <div class="field"><label for="start-form-who">סוג הפנייה</label><select id="start-form-who" name="who"><option value="private">לקוח פרטי</option><option value="investor">משקיע</option><option value="landlord">בעל נכס להשכרה שצריך שיפוץ</option><option value="other">אחר</option></select></div>
+            <div class="field"><label for="start-form-name">שם</label><input id="start-form-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="start-form-email">אימייל</label><input id="start-form-email" name="email" type="email" autocomplete="email" dir="auto"></div>
+            <div class="field"><label for="start-form-phone">טלפון</label><input id="start-form-phone" name="phone" type="tel" autocomplete="tel" dir="auto"></div>
+            <div class="field"><label for="start-form-location">מיקום הפרויקט או מיקוד</label><input id="start-form-location" name="location"></div>
+          </div>
+          <div class="field"><label for="start-form-size">היקף הפרויקט</label><select id="start-form-size" name="size"><option value="room">חדר או חלל אחד</option><option value="floor">קומה או דירה שלמה</option><option value="house" selected>בית או בניין שלם</option><option value="development">פרויקט או כמה נכסים</option><option value="unsure">עוד לא בטוחים</option></select></div>
+          <div class="fields">
+            <div class="field"><label for="start-form-start">מתי תרצו להתחיל?</label><select id="start-form-start" name="start"><option value="">בחרו אפשרות</option><option value="3m">תוך 3 חודשים</option><option value="3-6m">בעוד 3 עד 6 חודשים</option><option value="6-12m">בעוד 6 עד 12 חודשים</option><option value="unsure">עוד לא בטוחים</option></select></div>
+            <div class="field"><label for="start-form-budget">תקציב משוער (לא חובה)</label><input id="start-form-budget" name="budget"></div>
+          </div>
+          <div class="field"><label for="start-form-found">איך הגעתם אלינו?</label><select id="start-form-found" name="found" required><option value="">בחרו אפשרות</option><option value="google">חיפוש בגוגל</option><option value="google-maps">גוגל מפות</option><option value="ai-assistant">ChatGPT או עוזר AI אחר</option><option value="architect-designer">אדריכל או מעצב</option><option value="directory">Checkatrade, Houzz, Yell או Nextdoor</option><option value="social-group">קבוצת פייסבוק או וואטסאפ</option><option value="ru-community">הקהילה דוברת הרוסית</option><option value="he-community">הקהילה הישראלית ודוברי העברית</option><option value="linkedin">LinkedIn</option><option value="referral">חבר או מכר (המלצה)</option><option value="other">אחר</option></select></div>
+          <div class="field"><label for="start-form-brief">מה אתם מתכננים?</label><textarea id="start-form-brief" name="brief" rows="4"></textarea></div>
+          <div class="form-actions"><button class="btn btn-on-green" type="submit">שליחת פנייה</button></div>
+          <p class="form-status" role="alert" hidden>משהו השתבש וההודעה לא נשלחה. אפשר לכתוב לנו במייל: <a href="mailto:info@fedangroup.com" dir="ltr">info@fedangroup.com</a>.</p>
+          <p class="thanks" tabindex="-1" role="status">תודה, קיבלנו. אנחנו עונים לכל פנייה תוך שני ימי עבודה.</p>
+        </form>
+        <p class="form-note" data-wa-only hidden>מעדיפים קודם לדבר? <a href="/he/#start" data-wa-link>שלחו לנו הודעה בוואטסאפ</a>. תמיד נשמח לשיחה קצרה.</p>
+        <p class="form-note">נשתמש בפרטים שלכם רק כדי לחזור אליכם. <a href="/privacy">פרטיות</a></p>
+      </div>
+    </section>

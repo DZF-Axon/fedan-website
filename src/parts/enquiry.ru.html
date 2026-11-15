@@ -1,0 +1,34 @@
+    <section class="green" id="start">
+      <div class="wrap">
+        <p class="kicker">Начните здесь</p>
+        <h2>Пришлите нам сметы или расскажите, что вы планируете.</h2>
+        <p class="lede">Расскажите, кто вы, где находится объект и что вы планируете. Если у вас уже есть сметы или чертежи, напишите об этом, и мы попросим прислать их по почте. Мы отвечаем в течение двух рабочих дней.</p>
+        <form class="form" data-form data-one-of="email,phone" name="enquiry" method="POST" action="/ru/thanks" data-netlify="true" netlify-honeypot="website" id="start-form">
+          <input type="hidden" name="form-name" value="enquiry">
+          <input type="hidden" name="lang" value="ru">
+          <input type="hidden" name="page" value="Home">
+          <input type="hidden" name="src" value="">
+          <input type="hidden" name="ref" value="">
+          <div class="hp" aria-hidden="true"><label for="enquiry-website">Website</label><input id="enquiry-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <div class="fields">
+            <div class="field"><label for="start-form-who">Кто вы</label><select id="start-form-who" name="who"><option value="private">Частный клиент</option><option value="investor">Инвестор</option><option value="landlord">Арендодатель, которому нужен ремонт объекта</option><option value="other">Другое</option></select></div>
+            <div class="field"><label for="start-form-name">Имя</label><input id="start-form-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="start-form-email">Электронная почта</label><input id="start-form-email" name="email" type="email" autocomplete="email" dir="auto"></div>
+            <div class="field"><label for="start-form-phone">Телефон</label><input id="start-form-phone" name="phone" type="tel" autocomplete="tel" dir="auto"></div>
+            <div class="field"><label for="start-form-location">Где объект (адрес или индекс)</label><input id="start-form-location" name="location"></div>
+          </div>
+          <div class="field"><label for="start-form-size">Масштаб проекта</label><select id="start-form-size" name="size"><option value="room">Одна комната или помещение</option><option value="floor">Этаж или квартира целиком</option><option value="house" selected>Дом или здание целиком</option><option value="development">Девелопмент или несколько объектов</option><option value="unsure">Пока не знаю</option></select></div>
+          <div class="fields">
+            <div class="field"><label for="start-form-start">Когда хотите начать?</label><select id="start-form-start" name="start"><option value="">Выберите вариант</option><option value="3m">В ближайшие 3 месяца</option><option value="3-6m">Через 3-6 месяцев</option><option value="6-12m">Через 6-12 месяцев</option><option value="unsure">Пока не знаю</option></select></div>
+            <div class="field"><label for="start-form-budget">Примерный бюджет (необязательно)</label><input id="start-form-budget" name="budget"></div>
+          </div>
+          <div class="field"><label for="start-form-found">Как вы о нас узнали?</label><select id="start-form-found" name="found" required><option value="">Выберите вариант</option><option value="google">Поиск в Google</option><option value="google-maps">Google Карты</option><option value="ai-assistant">ChatGPT или другой ИИ-помощник</option><option value="architect-designer">Архитектор или дизайнер</option><option value="directory">Checkatrade, Houzz, Yell или Nextdoor</option><option value="social-group">Группа в Facebook или WhatsApp</option><option value="ru-community">Русскоязычное сообщество</option><option value="he-community">Израильское или ивритоязычное сообщество</option><option value="linkedin">LinkedIn</option><option value="referral">Друг или знакомый (рекомендация)</option><option value="other">Другое</option></select></div>
+          <div class="field"><label for="start-form-brief">Что вы задумали?</label><textarea id="start-form-brief" name="brief" rows="4"></textarea></div>
+          <div class="form-actions"><button class="btn btn-on-green" type="submit">Отправить запрос</button></div>
+          <p class="form-status" role="alert" hidden>Что-то пошло не так, и сообщение не отправилось. Напишите нам на <a href="mailto:info@fedangroup.com">info@fedangroup.com</a>.</p>
+          <p class="thanks" tabindex="-1" role="status">Спасибо, мы получили ваш запрос. Мы отвечаем на каждый запрос в течение двух рабочих дней.</p>
+        </form>
+        <p class="form-note" data-wa-only hidden>Хотите сначала поговорить? <a href="/ru/#start" data-wa-link>Напишите нам в WhatsApp</a>. Мы всегда рады коротко созвониться.</p>
+        <p class="form-note">Мы используем ваши данные только для ответа на запрос. <a href="/privacy">Конфиденциальность</a></p>
+      </div>
+    </section>
