@@ -51,9 +51,8 @@ const REDIRECTS = [
   '# Trial of one forced rule: the .html address goes to the clean address.',
   '/privacy.html    /privacy    301!',
   '',
-  '# Hebrew and Russian are one page each for now. Old inner pages go to it.',
-  '/he/*    /he/    302',
-  '/ru/*    /ru/    302',
+  '# Hebrew and Russian are one page each for now. Old inner pages go to it, one rule each (a /he/* catch-all did not fire on Netlify).',
+  ...['he', 'ru'].flatMap(l => ['about', 'architects', 'contact', 'how-we-work', 'investors', 'join-the-network', 'london-hq', 'privacy', 'private-clients', 'villa'].map(s => '/' + l + '/' + s + '    /' + l + '/    302')),
   '',
 ].join('\n');
 
