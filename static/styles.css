@@ -449,3 +449,8 @@ html[lang="he"] .legal { font-size: 14px; }
 .people.compact .person h3 { font-size: 22px; margin-top: 8px; }
 .people.compact .person .tag { margin-top: 0; }
 @media (max-width: 980px) { .seq { grid-template-columns: minmax(0, 1fr); } }
+
+/* Short site clip */
+.making { align-items: center; }
+.making video { display: block; width: 100%; max-width: 340px; height: auto; background: var(--stone-2); }
+@media (prefers-reduced-motion: reduce) { .making video { display: none; } }
